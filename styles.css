@@ -153,15 +153,15 @@
     --rect-rotate: -10deg;
     --rect-z-index: 20;
 
-     /* White rectangle */
-     --rect-white-width: 1460vw;
-     --rect-white-height: 204vw;
-     --rect-white-left: 30vw;
-     --rect-white-top: 404vw;
-     --rect-white-shift-x: 0vw;
-     --rect-white-shift-y: 0vw;
-     --rect-white-rotate: -10deg;
-     --rect-white-z-index: 20;
+    /* White rectangle */
+    --rect-white-width: 146vw;
+    --rect-white-height: 204vw;
+    --rect-white-left: 30vw;
+    --rect-white-top: 404vw;
+    --rect-white-shift-x: 0vw;
+    --rect-white-shift-y: 0vw;
+    --rect-white-rotate: -10deg;
+    --rect-white-z-index: 20;
 
     --canvas-padding-bottom: 20vw;
 
@@ -194,19 +194,27 @@
 }
 
 html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
     overflow-x: clip;
-    overscroll-behavior: none;
+    overscroll-behavior-y: none;
+    -webkit-text-size-adjust: 100%;
 }
 
 body {
     background-color: #FFE49F;
     margin: 0;
+    padding: 0;
+    width: 100%;
     overflow-x: clip;
 }
 
 .hero {
     position: relative;
+    display: block;
     width: 100%;
+    margin: 0;
     min-height: var(--canvas-min-height);
 }
 
