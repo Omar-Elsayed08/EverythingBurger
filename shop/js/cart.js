@@ -128,36 +128,24 @@
         }, 0);
     }
 
-    /* Assembles the payload a checkout API would consume. */
     function buildCheckoutPayload() {
         var lines = getDetailedCart();
         return {
             items: lines.map(function (line) {
                 return {
                     id: line.id,
-                    title: line.title,
                     size: line.size,
-                    qty: line.qty,
-                    priceCents: line.priceCents
+                    qty: line.qty
                 };
-            }),
-            subtotalCents: getSubtotalCents(),
-            currency: "USD"
+            })
         };
     }
 
-    /* Placeholder checkout. Swap the body for a real API call later, e.g.
-     *   return fetch("/api/checkout", {
-     *       method: "POST",
-     *       headers: { "Content-Type": "application/json" },
-     *       body: JSON.stringify(payload)
-     *   }).then(function (res) { return res.json(); });
-     */
     function checkout() {
-        var payload = buildCheckoutPayload();
-        // TODO: POST `payload` to the checkout API and redirect to the returned URL.
-        console.log("[EBCart] checkout payload ready:", payload);
-        return Promise.resolve(payload);
+        if (!window.EBCheckout || typeof window.EBCheckout.start !== "function") {
+            return Promise.reject(new Error("Checkout is not loaded."));
+        }
+        return window.EBCheckout.start(buildCheckoutPayload());
     }
 
     /* Subscribe to cart changes (same tab + other tabs). Returns an unsubscribe. */
