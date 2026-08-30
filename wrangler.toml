@@ -16,7 +16,7 @@ html_handling = "none"
 # Non-secret settings. Secrets (STRIPE_SECRET_KEY, STRIPE_WEBHOOK_SECRET) are
 # set with `wrangler secret put` and never live in this file.
 [vars]
-PUBLIC_BASE_URL = "https://everything-burger.tesburgereverything.workers.dev/"
+PUBLIC_BASE_URL = "https://everything-burger.tesburgereverything.workers.dev"
 CURRENCY = "usd"
 SHIPPING_CENTS = "800"
 MAX_QTY_PER_LINE = "20"
